@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
         user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPasssword());
+        user.setPassword(userDto.getPassword());
         user.setAbout(userDto.getAbout());
 
         User updatedUser = this.userRepo.save(user); // Save updated user
@@ -65,18 +65,17 @@ public class UserServiceImpl implements UserService {
 
     // Convert UserDto to User
     private User dtoToUser(UserDto userDto) {
-//        User user = new User();
-//        user.setId(userDto.getId());
-//        user.setName(userDto.getName());
-//        user.setEmail(userDto.getEmail());
-//        user.setAbout(userDto.getAbout());
-//        user.setPassword(userDto.getPasssword());
-//        return user;
+        User user = new User();
+        user.setId(userDto.getId());
+        user.setName(userDto.getName());
+        user.setEmail(userDto.getEmail());
+        user.setAbout(userDto.getAbout());
+        user.setPassword(userDto.getPassword());
+        return user;
     	
     	// Now we will do same thing with help of modelMapper method
-    	
-    	User user=this.modelMapper.map(userDto, User.class); // userDto ko User.class mai change kr dega
-    	return user;
+//    	User user=this.modelMapper.map(userDto, User.class); // userDto ko User.class mai change kr dega
+//    	return user;
     }
 
     // Convert User to UserDto

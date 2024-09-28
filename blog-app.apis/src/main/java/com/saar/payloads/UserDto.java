@@ -18,15 +18,16 @@ public class UserDto {
 	
 	@NotEmpty
 	@Size(min=4, message="Username must be of 4 character !!")
+	@NotNull(message = "Password is required")
 	private String name;
 	
 	@Email(message="Email address is not valid!!")
 	private String email;
 	
-	@NotNull
 	@Size(min=3,max=10, message="Password must be min of 3 chars and max of 10 chars")
 //	@Pattern(regexp=) // generate pattern that if you want only upper cases , numbers etc 
-	private String passsword;
+	@NotNull
+	private String password;
 	
 	@NotNull
 	private String about;

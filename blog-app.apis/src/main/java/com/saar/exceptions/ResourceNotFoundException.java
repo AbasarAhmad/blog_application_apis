@@ -1,7 +1,7 @@
 package com.saar.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
-	// we are going to make a unchecked construnctor
+	// we are going to make a unchecked construnctorr
 	
 	String resourceName;
 	String fieldName;
