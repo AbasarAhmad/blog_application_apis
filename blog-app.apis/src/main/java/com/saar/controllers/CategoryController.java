@@ -16,6 +16,8 @@ import com.saar.payloads.ApiResponse;
 import com.saar.payloads.CategoryDto;
 import com.saar.services.CategoryService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -25,14 +27,15 @@ public class CategoryController {
 
     // Create
     @PostMapping("/")
-    public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto) {
+    // yaha par ham @Valid ka use kiye hai jo ki validation ke liye lagaye hai yani dto mai jo size, NotBlank vala condition lagaye hai use follow krne ke liye
+    public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto) {
         CategoryDto createCategory = this.categoryService.createCategory(categoryDto);
         return new ResponseEntity<CategoryDto>(createCategory, HttpStatus.CREATED);
     }
 
     // Update
     @PutMapping("/{id}")
-    public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto, @PathVariable Integer id) {
+    public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto, @PathVariable Integer id) {
         CategoryDto updatedCategory = this.categoryService.updateCategory(categoryDto, id);
         return new ResponseEntity<CategoryDto>(updatedCategory, HttpStatus.OK);
     }
