@@ -21,7 +21,7 @@ public interface PostService {
 	
 	// get all posts
 	
-	List<PostDto>getAllPost();
+	List<PostDto>getAllPost(Integer pageNumber, Integer pageSize);
 	
 	// get Single post
 	PostDto getPostById(Integer postId);
