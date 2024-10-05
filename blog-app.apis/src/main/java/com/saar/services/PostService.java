@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.saar.entities.Post;
 import com.saar.payloads.PostDto;
+import com.saar.payloads.PostResponse;
 
 @Service
 public interface PostService {
@@ -21,7 +21,7 @@ public interface PostService {
 	
 	// get all posts
 	
-	List<PostDto>getAllPost(Integer pageNumber, Integer pageSize);
+	PostResponse getAllPost(Integer pageNumber, Integer pageSize, String sortBy,String sortDir);
 	
 	// get Single post
 	PostDto getPostById(Integer postId);
@@ -32,5 +32,5 @@ public interface PostService {
 	// get all posts by user
 	List<PostDto>getPostsByUser(Integer userId);
 	
-	List<Post>searchPosts(String keyword);
+	List<PostDto>searchPostsByTitle(String keyword);
 }
