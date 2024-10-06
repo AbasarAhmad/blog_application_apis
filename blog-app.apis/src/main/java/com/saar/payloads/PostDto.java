@@ -1,6 +1,10 @@
 package com.saar.payloads;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.saar.entities.Comment;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,4 +20,5 @@ public class PostDto {
 	private Date addDate;
 	private CategoryDto category; // CategoryDto is liye likhe hai taki recursion ka situation na bane
 	private UserDto user;
+	private Set<CommentDto>comments =new HashSet<>();
 }
